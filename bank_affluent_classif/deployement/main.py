@@ -18,7 +18,7 @@ class Customer(BaseModel):
     p_value: float
     bad: int
     good: int
-    ratio: float
+    ratio: float 
     
 def load_model(path:str) -> None:
     return pickle.load(open(path, 'rb'))
@@ -31,19 +31,20 @@ app = FastAPI()
 
 @app.get('/')
 async def index():
+    #Landing Page for your model
     return FileResponse('html/index.html')
 
 @app.get('/favicon.ico')
 async def favicon():
+    #Favicon for your model page
     return FileResponse('html/favicon.png')
 
-@app.post('/predict/commonality')
+@app.post('/predict/affluent')
 async def predict_commonality(Customer: Customer):
     data = Customer.dict()
-    model = load_model(f'commonality/models/commonality_model_v{model_rev}.pkl')
-    data_in = [[data['tested'], data['fail_pct'], data['sba_limit'], data['hbin_qty_sum'], data['p_value'], data['bad'], data['good'], data['ratio']]]
-    prediction = model.predict(data_in)
-    probability = model.predict_proba(data_in).max()
+    model = load_model(f'models/affluent_model_v{model_rev}.pkl')
+    prediction = model.predict(data)
+    probability = model.predict_proba(data).max()
 
     return {
         'prediction': prediction[0],
