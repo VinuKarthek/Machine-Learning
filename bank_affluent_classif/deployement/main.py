@@ -11,14 +11,14 @@ from pydantic import BaseModel
 import pickle
  
 class Customer(BaseModel):
-    tested: int 
-    fail_pct: float 
-    sba_limit: float 
-    hbin_qty_sum: int
-    p_value: float
-    bad: int
-    good: int
-    ratio: float 
+    C_AGE: int 
+    C_EDU: str 
+    C_HSE: str 
+    INCM_TYP: int
+    gn_occ: str
+    NUM_PRD: int
+    CASATD_CNT: int
+    MTHCASA: float 
     
 def load_model(path:str) -> None:
     return pickle.load(open(path, 'rb'))
