@@ -1,0 +1,9 @@
+pydantic==1.9.1
+pickleshare
+pandas==1.4.3
+numpy==1.23.1
+sckitlearn
+imblearn
+seaborn
+mlflow
+Pillow
