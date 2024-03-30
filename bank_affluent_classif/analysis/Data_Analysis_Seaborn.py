@@ -5,7 +5,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-DATA_SOURCE = r'C:\git\python\projects\bank_affluent_classif\data\bank_customer_data.csv'
+DATA_SOURCE = r'C:\git\python\projects\Machine-Learning\bank_affluent_classif\data\bank_customer_data.csv'
 
 df = pd.read_csv(DATA_SOURCE)
 
